@@ -19,16 +19,42 @@ int main()
     };
     
     // navio 1
-    tabuleiro[1][6] = 3;
-    tabuleiro[1][7] = 3;
-    tabuleiro[1][8] = 3;
+    tabuleiro[0][6] = 3;
+    tabuleiro[0][7] = 3;
+    tabuleiro[0][8] = 3;
     
     //navio 2
-    tabuleiro[2][2] = 3;
     tabuleiro[3][2] = 3;
     tabuleiro[4][2] = 3;
-    
-    // loop para apresentar o tabuleiro
+    tabuleiro[5][2] = 3;
+
+    // loop para navio na diagonal primaria
+    for(i=0;i<10;i++){
+        for(j=0;j<10;j++){
+            if(i==j){
+                if(i>2 && i<6){
+                tabuleiro[i][i]=3;
+                tabuleiro[i][i]=3;
+                tabuleiro[i][i]=3;
+                }
+            }
+        }
+    }
+
+    //loop para navio na diagonal secundária
+    for(i=0;i<10;i++){
+        for(j=0;j<10;j++){
+            if(i==j){
+                if(i>0 && i<4){
+                tabuleiro[i][9-j]=3;
+                }
+            }
+            
+        }
+    }
+
+
+    // imprimir o tabuleiro com os navios
     printf("Tabuleiro Batalha Naval\n\n");
     printf("  ");
     for(j=0;j<10;j++)
@@ -41,7 +67,9 @@ int main()
             printf("%d ", tabuleiro[i][j]);
         }
         printf("\n");
-    }  
+    }
+    
+    
 
     return 0;
 }
